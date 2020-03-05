@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_length">
+
+    <fragment
+        android:id="@+id/nav_length"
+        android:name="nl.jaarts.cleanconverter.ui.length.LengthFragment"
+        android:label="@string/menu_item_length"
+        tools:layout="@layout/fragment_length" />
+
+    <fragment
+        android:id="@+id/nav_weight"
+        android:name="nl.jaarts.cleanconverter.ui.weight.WeightFragment"
+        android:label="@string/menu_item_weight"
+        tools:layout="@layout/fragment_weight" />
+
+    <fragment
+        android:id="@+id/nav_temp"
+        android:name="nl.jaarts.cleanconverter.ui.temperature.TemperatureFragment"
+        android:label="@string/menu_item_temperature"
+        tools:layout="@layout/fragment_temperature" />
+
+    <fragment
+        android:id="@+id/nav_bmi"
+        android:name="nl.jaarts.cleanconverter.ui.bmi.BmiFragment"
+        android:label="@string/menu_item_bmi"
+        tools:layout="@layout/fragment_bmi" />
+</navigation>

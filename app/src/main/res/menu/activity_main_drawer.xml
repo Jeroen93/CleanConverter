@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="@string/menu_section_conversion">
+        <menu>
+            <group
+                android:id="@+id/conversion"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_length"
+                    android:icon="@drawable/ic_menu_length"
+                    android:title="@string/menu_item_length"/>
+                <item
+                    android:id="@+id/nav_weight"
+                    android:icon="@drawable/ic_menu_weight"
+                    android:title="@string/menu_item_weight"/>
+                <item
+                    android:id="@+id/nav_temp"
+                    android:icon="@drawable/ic_menu_temp"
+                    android:title="@string/menu_item_temperature"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_section_calculation">
+        <menu>
+            <group
+                android:id="@+id/calculation"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_bmi"
+                    android:icon="@drawable/ic_menu_bmi"
+                    android:title="@string/menu_item_bmi"/>
+            </group>
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CleanConverter</string>
+
+    <string name="menu_section_conversion">Conversion</string>
+    <string name="menu_section_calculation">Calculation</string>
+    <string name="menu_item_length">Length</string>
+    <string name="menu_item_weight">Weight</string>
+    <string name="menu_item_temperature">Temperature</string>
+    <string name="menu_item_bmi">BMI</string>
+    <string name="btn_convert">Convert</string>
+    <string name="btn_reset">Reset</string>
+</resources>
