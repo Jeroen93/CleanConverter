@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 public class BMICalculator {
 
     public static double calculateBMI(double cm, double kg) {
-        if (cm == 0 || kg == 0) {
+        if (isInvalid(cm) || isInvalid(kg)) {
             return Double.NaN;
         }
 
@@ -19,7 +19,7 @@ public class BMICalculator {
     public static double calculateBMI(double ft, double in, double lb) {
         double totalInch = ft * 12 + in;
 
-        if (totalInch == 0 || lb == 0) {
+        if (isInvalid(totalInch) || isInvalid(lb)) {
             return Double.NaN;
         }
 
@@ -37,5 +37,9 @@ public class BMICalculator {
         bd = bd.setScale(places, RoundingMode.HALF_UP);
 
         return bd.doubleValue();
+    }
+
+    private static boolean isInvalid(double value) {
+        return value == 0d || Double.isNaN(value);
     }
 }
