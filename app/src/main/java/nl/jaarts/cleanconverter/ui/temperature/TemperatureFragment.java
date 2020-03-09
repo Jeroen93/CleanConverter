@@ -37,6 +37,7 @@ public class TemperatureFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_temperature, container, false);
 
         getEditTextsFromView(view);
+        resetEditTexts();
 
         Button btnConvertC = view.findViewById(R.id.btnConvertC);
         btnConvertC.setOnClickListener(createClickListener(etCelsius, TemperatureUnit.CELSIUS));
@@ -51,11 +52,15 @@ public class TemperatureFragment extends Fragment {
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayTemperatureValues(new TemperatureValuesContainer());
+                resetEditTexts();
             }
         });
 
         return view;
+    }
+
+    private void resetEditTexts() {
+        displayTemperatureValues(new TemperatureValuesContainer());
     }
 
     private void displayTemperatureValues(final TemperatureValuesContainer container) {

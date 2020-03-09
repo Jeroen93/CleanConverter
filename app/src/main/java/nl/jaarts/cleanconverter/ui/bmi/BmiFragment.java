@@ -15,6 +15,8 @@ import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.text.DecimalFormat;
+
 import nl.jaarts.cleanconverter.R;
 import nl.jaarts.cleanconverter.model.BmiCalculationResult;
 import nl.jaarts.cleanconverter.util.EditTextUtil;
@@ -57,6 +59,8 @@ public class BmiFragment extends Fragment {
         etBmi = view.findViewById(R.id.etBmi);
         etCategory = view.findViewById(R.id.etCategory);
 
+        resetEditTexts();
+
         RadioGroup radioGroup = view.findViewById(R.id.rgSystem);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -88,15 +92,19 @@ public class BmiFragment extends Fragment {
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etHeightCm.setText("");
-                etHeightFt.setText("");
-                etHeightIn.setText("");
-                etWeight.setText("");
-                displayBMIResult(new BmiCalculationResult());
+                resetEditTexts();
             }
         });
 
         return view;
+    }
+
+    private void resetEditTexts() {
+        etHeightCm.setText("0");
+        etHeightFt.setText("0");
+        etHeightIn.setText("0");
+        etWeight.setText("0");
+        displayBMIResult(new BmiCalculationResult());
     }
 
     private void calculateMetricBMI() {
@@ -115,7 +123,8 @@ public class BmiFragment extends Fragment {
     }
 
     private void displayBMIResult(BmiCalculationResult result) {
-        etBmi.setText(String.format("%s", result.getBmi()));
+        DecimalFormat format = new DecimalFormat("#.#");
+        etBmi.setText(format.format(result.getBmi()));
         etCategory.setText(result.getCategory());
     }
 
