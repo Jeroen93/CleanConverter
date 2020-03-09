@@ -2,10 +2,14 @@ package nl.jaarts.cleanconverter.ui.bmi;
 
 import androidx.lifecycle.ViewModel;
 
+import nl.jaarts.cleanconverter.R;
 import nl.jaarts.cleanconverter.calculator.BMICalculator;
 import nl.jaarts.cleanconverter.model.BmiCalculationResult;
+import nl.jaarts.cleanconverter.util.ResourceProvider;
 
 public class BmiViewModel extends ViewModel {
+
+    private ResourceProvider resourceProvider;
 
     public BmiCalculationResult calculateMetricBMI(double cm, double kg) {
         double bmi = BMICalculator.calculateBMI(cm, kg);
@@ -23,17 +27,21 @@ public class BmiViewModel extends ViewModel {
 
     private String getCategoryForBMI(double bmi) {
         if (bmi <= 18.4) {
-            return "Underweight";
+            return resourceProvider.getString(R.string.lblUnderweight);
         } else if (bmi <= 24.9) {
-            return "Normal weight";
+            return resourceProvider.getString(R.string.lblNormalWeight);
         } else if (bmi <= 29.9) {
-            return "Overweight";
+            return resourceProvider.getString(R.string.lblOverweight);
         } else if (bmi <= 34.9) {
-            return "Moderately obese";
+            return resourceProvider.getString(R.string.lblModeratelyObese);
         } else if (bmi <= 39.9) {
-            return "Severely obese";
+            return resourceProvider.getString(R.string.lblSeverelyObese);
         } else {
-            return "Very severely obese";
+            return resourceProvider.getString(R.string.lblVerySeverelyObese);
         }
+    }
+
+    public void setResourceProvider(ResourceProvider resourceProvider) {
+        this.resourceProvider = resourceProvider;
     }
 }

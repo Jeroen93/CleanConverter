@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:title="@string/menu_section_conversion">
+    <item android:title="@string/lblConversion">
         <menu>
             <group
                 android:id="@+id/conversion"
@@ -11,20 +11,20 @@
                 <item
                     android:id="@+id/nav_length"
                     android:icon="@drawable/ic_menu_length"
-                    android:title="@string/menu_item_length"/>
+                    android:title="@string/lblLength"/>
                 <item
                     android:id="@+id/nav_weight"
                     android:icon="@drawable/ic_menu_weight"
-                    android:title="@string/menu_item_weight"/>
+                    android:title="@string/lblWeight"/>
                 <item
                     android:id="@+id/nav_temp"
                     android:icon="@drawable/ic_menu_temp"
-                    android:title="@string/menu_item_temperature"/>
+                    android:title="@string/lblTemperature"/>
             </group>
         </menu>
     </item>
 
-    <item android:title="@string/menu_section_calculation">
+    <item android:title="@string/lblCalculation">
         <menu>
             <group
                 android:id="@+id/calculation"
@@ -32,7 +32,7 @@
                 <item
                     android:id="@+id/nav_bmi"
                     android:icon="@drawable/ic_menu_bmi"
-                    android:title="@string/menu_item_bmi"/>
+                    android:title="@string/lblBMI"/>
             </group>
         </menu>
     </item>

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Height"
+        android:text="@string/lblHeight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rgSystem" />
 
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="cm"
+        android:text="@string/lblUnitCm"
         app:layout_constraintBaseline_toBaselineOf="@+id/etHeightCm"
         app:layout_constraintStart_toEndOf="@+id/etHeightCm" />
 
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Calculate"
+        android:text="@string/lblCalculate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etWeight" />
 
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="@string/btn_reset"
+        android:text="@string/lblReset"
         app:layout_constraintBaseline_toBaselineOf="@+id/btnCalculate"
         app:layout_constraintStart_toEndOf="@+id/btnCalculate" />
 
@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/menu_item_weight"
+        android:text="@string/lblWeight"
         app:layout_constraintStart_toStartOf="@+id/textView32"
         app:layout_constraintTop_toBottomOf="@+id/etHeightFt" />
 
@@ -86,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="kg"
+        android:text="@string/lblUnitKg"
         app:layout_constraintBaseline_toBaselineOf="@+id/etWeight"
         app:layout_constraintStart_toEndOf="@+id/etWeight" />
 
@@ -105,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="ft"
+        android:text="@string/lblUnitFt"
         app:layout_constraintBaseline_toBaselineOf="@+id/etHeightFt"
         app:layout_constraintStart_toEndOf="@+id/etHeightFt" />
 
@@ -125,7 +125,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="in"
+        android:text="@string/lblUnitIn"
         app:layout_constraintBaseline_toBaselineOf="@+id/etHeightIn"
         app:layout_constraintStart_toEndOf="@+id/etHeightIn" />
 
@@ -151,14 +151,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Metric" />
+            android:text="@string/lblMetric" />
 
         <RadioButton
             android:id="@+id/rbImperial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Imperial" />
+            android:text="@string/lblImperial" />
     </RadioGroup>
 
     <TextView
@@ -166,7 +166,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/menu_item_bmi"
+        android:text="@string/lblBMI"
         app:layout_constraintStart_toStartOf="@+id/btnCalculate"
         app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
 
@@ -175,7 +175,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="kg/m2"
+        android:text="@string/lblUnitKgPerM2"
         app:layout_constraintBaseline_toBaselineOf="@+id/etBmi"
         app:layout_constraintStart_toEndOf="@+id/etBmi" />
 
@@ -196,7 +196,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Category"
+        android:text="@string/lblCategory"
         app:layout_constraintStart_toStartOf="@+id/etBmi"
         app:layout_constraintTop_toBottomOf="@+id/etBmi" />
 
