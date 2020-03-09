@@ -31,7 +31,8 @@ public class BmiFragment extends Fragment {
     private EditText etHeightFt;
     private EditText etHeightIn;
     private EditText etWeight;
-    private TextView tvBmi;
+    private EditText etBmi;
+    private EditText etCategory;
 
     private boolean showsMetric = true;
 
@@ -51,7 +52,8 @@ public class BmiFragment extends Fragment {
         etHeightFt = view.findViewById(R.id.etHeightFt);
         etHeightIn = view.findViewById(R.id.etHeightIn);
         etWeight = view.findViewById(R.id.etWeight);
-        tvBmi = view.findViewById(R.id.tvBmi);
+        etBmi = view.findViewById(R.id.etBmi);
+        etCategory = view.findViewById(R.id.etCategory);
 
         RadioGroup radioGroup = view.findViewById(R.id.rgSystem);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -80,6 +82,18 @@ public class BmiFragment extends Fragment {
             }
         });
 
+        Button btnReset = view.findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etHeightCm.setText("");
+                etHeightFt.setText("");
+                etHeightIn.setText("");
+                etWeight.setText("");
+                displayBMIResult(new BmiCalculationResult());
+            }
+        });
+
         return view;
     }
 
@@ -99,8 +113,8 @@ public class BmiFragment extends Fragment {
     }
 
     private void displayBMIResult(BmiCalculationResult result) {
-
-        tvBmi.setText(String.format("%s", result.getBmi()));
+        etBmi.setText(String.format("%s", result.getBmi()));
+        etCategory.setText(result.getCategory());
     }
 
     private void showMetricFields() {
