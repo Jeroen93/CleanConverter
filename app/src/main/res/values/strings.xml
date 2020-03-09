@@ -51,4 +51,5 @@
     <string name="lblModeratelyObese">Moderately obese</string>
     <string name="lblSeverelyObese">Severely obese</string>
     <string name="lblVerySeverelyObese">Very severely obese</string>
+    <string name="lblFeetPlusInch">Feet + inch</string>
 </resources>

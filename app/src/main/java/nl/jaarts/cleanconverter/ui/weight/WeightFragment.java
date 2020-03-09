@@ -39,6 +39,7 @@ public class WeightFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_weight, container, false);
 
         getEditTextsFromView(view);
+        resetEditTexts();
 
         Button btnConvertG = view.findViewById(R.id.btnConvertG);
         btnConvertG.setOnClickListener(createClickListener(etGram, WeightUnit.GRAM));
@@ -59,11 +60,15 @@ public class WeightFragment extends Fragment {
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayWeightValues(new WeightValuesContainer());
+                resetEditTexts();
             }
         });
 
         return view;
+    }
+
+    private void resetEditTexts() {
+        displayWeightValues(new WeightValuesContainer());
     }
 
     private void displayWeightValues(final WeightValuesContainer valuesContainer) {

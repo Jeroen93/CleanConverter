@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnConvertFt" />
 
     <Button
-        android:id="@+id/btnConvertKm"
+        android:id="@+id/btnConvertFtIn"
         android:layout_width="87dp"
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
@@ -69,6 +69,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/btnConvertIn" />
+
+    <Button
+        android:id="@+id/btnConvertKm"
+        android:layout_width="87dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/lblConvert"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/btnConvertFtIn" />
 
     <Button
         android:id="@+id/btnConvertM"
@@ -194,7 +208,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="end"
-        app:constraint_referenced_ids="textView2,textView,textView8,textView10,textView4,textView16,textView17"
+        app:constraint_referenced_ids="textView2,textView,textView8,textView10,textView4,textView16,textView17,textView33"
         tools:layout_editor_absoluteX="107dp"
         tools:layout_editor_absoluteY="397dp" />
 
@@ -280,7 +294,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="left"
-        app:constraint_referenced_ids="textView21,textView20,textView22,textView19,textView24,textView23,textView18"
+        app:constraint_referenced_ids="textView21,textView20,textView22,textView19,textView24,textView23,textView18,textView35"
         tools:layout_editor_absoluteX="411dp" />
 
     <EditText
@@ -354,5 +368,59 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/btnConvertYd"
         app:layout_constraintEnd_toEndOf="@+id/etMiles"
         app:layout_constraintStart_toStartOf="@+id/etMiles" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/lblFeetPlusInch"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnConvertFtIn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/lblUnitIn"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnConvertFtIn"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/brUnits" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/etKilometers"
+        app:layout_constraintEnd_toEndOf="@+id/etInches"
+        app:layout_constraintStart_toStartOf="@+id/etInches"
+        app:layout_constraintTop_toBottomOf="@+id/etInches">
+
+        <EditText
+            android:id="@+id/etCombiFt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:text="@string/lblUnitFt"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/etCombiIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

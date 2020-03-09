@@ -35,6 +35,7 @@ class EditTextUtilTest {
         assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() {
+                //noinspection ConstantConditions
                 EditTextUtil.getDoubleValue(null);
             }
         });
