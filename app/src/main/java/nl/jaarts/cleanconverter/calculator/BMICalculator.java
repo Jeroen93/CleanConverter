@@ -1,7 +1,6 @@
 package nl.jaarts.cleanconverter.calculator;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import nl.jaarts.cleanconverter.util.DoubleUtil;
 
 public class BMICalculator {
 
@@ -13,7 +12,7 @@ public class BMICalculator {
         double m = cm / 100d;
         double bmi = kg / (m * m);
 
-        return round(bmi, 1);
+        return DoubleUtil.round(bmi, 1);
     }
 
     public static double calculateBMI(double ft, double in, double lb) {
@@ -25,19 +24,7 @@ public class BMICalculator {
 
         double bmi = (lb / (totalInch * totalInch)) * 703;
 
-        return round(bmi, 1);
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private static double round(double value, int places) {
-        if (places < 0) {
-            throw new IllegalArgumentException();
-        }
-
-        BigDecimal bd = BigDecimal.valueOf(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
-
-        return bd.doubleValue();
+        return DoubleUtil.round(bmi, 1);
     }
 
     private static boolean isInvalid(double value) {
