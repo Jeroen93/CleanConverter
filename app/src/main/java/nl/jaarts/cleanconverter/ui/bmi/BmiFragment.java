@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import nl.jaarts.cleanconverter.R;
 import nl.jaarts.cleanconverter.model.BmiCalculationResult;
 import nl.jaarts.cleanconverter.util.EditTextUtil;
+import nl.jaarts.cleanconverter.util.ResourceProvider;
 
 public class BmiFragment extends Fragment {
 
@@ -35,6 +36,7 @@ public class BmiFragment extends Fragment {
     private EditText etCategory;
 
     private boolean showsMetric = true;
+    private ResourceProvider resourceProvider;
 
     public static BmiFragment newInstance() {
         return new BmiFragment();
@@ -120,14 +122,14 @@ public class BmiFragment extends Fragment {
     private void showMetricFields() {
         grpMetric.setVisibility(View.VISIBLE);
         grpImperial.setVisibility(View.GONE);
-        tvWeightUnit.setText("kg");
+        tvWeightUnit.setText(R.string.lblUnitKg);
         showsMetric = true;
     }
 
     private void showImperialFields() {
         grpMetric.setVisibility(View.GONE);
         grpImperial.setVisibility(View.VISIBLE);
-        tvWeightUnit.setText("lb");
+        tvWeightUnit.setText(R.string.lblUnitLb);
         showsMetric = false;
     }
 
@@ -135,5 +137,14 @@ public class BmiFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(BmiViewModel.class);
+        mViewModel.setResourceProvider(getResourceProvider());
+    }
+
+    public ResourceProvider getResourceProvider() {
+        if (resourceProvider == null) {
+            resourceProvider = new ResourceProvider(this.getContext());
+        }
+
+        return resourceProvider;
     }
 }

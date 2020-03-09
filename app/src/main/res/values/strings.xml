@@ -45,4 +45,10 @@
     <string name="lblStones">Stones</string>
     <string name="lblOunces">Ounces</string>
     <string name="lblUnitOz">oz</string>
+    <string name="lblUnderweight">Underweight</string>
+    <string name="lblNormalWeight">Normal weight</string>
+    <string name="lblOverweight">Overweight</string>
+    <string name="lblModeratelyObese">Moderately obese</string>
+    <string name="lblSeverelyObese">Severely obese</string>
+    <string name="lblVerySeverelyObese">Very severely obese</string>
 </resources>
