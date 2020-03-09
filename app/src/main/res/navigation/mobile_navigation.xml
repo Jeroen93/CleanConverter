@@ -8,24 +8,24 @@
     <fragment
         android:id="@+id/nav_length"
         android:name="nl.jaarts.cleanconverter.ui.length.LengthFragment"
-        android:label="@string/menu_item_length"
+        android:label="@string/lblLength"
         tools:layout="@layout/fragment_length" />
 
     <fragment
         android:id="@+id/nav_weight"
         android:name="nl.jaarts.cleanconverter.ui.weight.WeightFragment"
-        android:label="@string/menu_item_weight"
+        android:label="@string/lblWeight"
         tools:layout="@layout/fragment_weight" />
 
     <fragment
         android:id="@+id/nav_temp"
         android:name="nl.jaarts.cleanconverter.ui.temperature.TemperatureFragment"
-        android:label="@string/menu_item_temperature"
+        android:label="@string/lblTemperature"
         tools:layout="@layout/fragment_temperature" />
 
     <fragment
         android:id="@+id/nav_bmi"
         android:name="nl.jaarts.cleanconverter.ui.bmi.BmiFragment"
-        android:label="@string/menu_item_bmi"
+        android:label="@string/lblBMI"
         tools:layout="@layout/fragment_bmi" />
 </navigation>
