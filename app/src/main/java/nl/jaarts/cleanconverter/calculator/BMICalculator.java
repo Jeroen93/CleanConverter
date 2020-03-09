@@ -28,7 +28,8 @@ public class BMICalculator {
         return round(bmi, 1);
     }
 
-    public static double round(double value, int places) {
+    @SuppressWarnings("SameParameterValue")
+    private static double round(double value, int places) {
         if (places < 0) {
             throw new IllegalArgumentException();
         }
