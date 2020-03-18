@@ -110,6 +110,11 @@ public class BmiFragment extends Fragment {
     private void calculateMetricBMI() {
         double cm = EditTextUtil.getDoubleValue(etHeightCm);
         double kg = EditTextUtil.getDoubleValue(etWeight);
+
+        if (Double.isNaN(cm) || Double.isNaN(kg)) {
+            return;
+        }
+
         BmiCalculationResult result = mViewModel.calculateMetricBMI(cm, kg);
         displayBMIResult(result);
     }
@@ -118,6 +123,16 @@ public class BmiFragment extends Fragment {
         double ft = EditTextUtil.getDoubleValue(etHeightFt);
         double in = EditTextUtil.getDoubleValue(etHeightIn);
         double lb = EditTextUtil.getDoubleValue(etWeight);
+
+        if (Double.isNaN(lb) || Double.isNaN(ft)) {
+            return;
+        }
+
+        // Inch field may be left empty -> set to 0
+        if (Double.isNaN(in)) {
+            in = 0d;
+        }
+
         BmiCalculationResult result = mViewModel.calculateImperialBMI(ft, in, lb);
         displayBMIResult(result);
     }
