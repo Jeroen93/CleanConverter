@@ -44,7 +44,6 @@ public class LengthFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_length, container, false);
 
         getEditTextsFromView(view);
-        resetEditTexts();
 
         Button btnConvertCm = view.findViewById(R.id.btnConvertCm);
         btnConvertCm.setOnClickListener(createClickListener(etCentimeters, LengthUnit.CENTIMETERS));
@@ -96,7 +95,16 @@ public class LengthFragment extends Fragment {
     }
 
     private void resetEditTexts() {
-        displayLengthValues(new LengthValuesContainer());
+        String empty = "";
+        etCentimeters.setText(empty);
+        etFeet.setText(empty);
+        etInches.setText(empty);
+        etCombiFt.setText(empty);
+        etCombiIn.setText(empty);
+        etKilometers.setText(empty);
+        etMeters.setText(empty);
+        etMiles.setText(empty);
+        etYards.setText(empty);
     }
 
     private void displayLengthValues(final LengthValuesContainer container) {

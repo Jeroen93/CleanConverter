@@ -59,8 +59,6 @@ public class BmiFragment extends Fragment {
         etBmi = view.findViewById(R.id.etBmi);
         etCategory = view.findViewById(R.id.etCategory);
 
-        resetEditTexts();
-
         RadioGroup radioGroup = view.findViewById(R.id.rgSystem);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -100,11 +98,13 @@ public class BmiFragment extends Fragment {
     }
 
     private void resetEditTexts() {
-        etHeightCm.setText("0");
-        etHeightFt.setText("0");
-        etHeightIn.setText("0");
-        etWeight.setText("0");
-        displayBMIResult(new BmiCalculationResult());
+        String empty = "";
+        etHeightCm.setText(empty);
+        etHeightFt.setText(empty);
+        etHeightIn.setText(empty);
+        etWeight.setText(empty);
+        etBmi.setText(empty);
+        etCategory.setText(empty);
     }
 
     private void calculateMetricBMI() {

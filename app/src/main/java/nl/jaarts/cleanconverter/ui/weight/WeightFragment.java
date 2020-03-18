@@ -39,7 +39,6 @@ public class WeightFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_weight, container, false);
 
         getEditTextsFromView(view);
-        resetEditTexts();
 
         Button btnConvertG = view.findViewById(R.id.btnConvertG);
         btnConvertG.setOnClickListener(createClickListener(etGram, WeightUnit.GRAM));
@@ -68,7 +67,12 @@ public class WeightFragment extends Fragment {
     }
 
     private void resetEditTexts() {
-        displayWeightValues(new WeightValuesContainer());
+        String empty = "";
+        etGram.setText(empty);
+        etKilos.setText(empty);
+        etStones.setText(empty);
+        etPounds.setText(empty);
+        etOunces.setText(empty);
     }
 
     private void displayWeightValues(final WeightValuesContainer valuesContainer) {
