@@ -11,12 +11,7 @@ class DoubleUtilTest {
 
     @Test
     void round_NegativePlace_ThrowsIllegalArgumentException() {
-        assertThrows(IllegalArgumentException.class, new Executable() {
-            @Override
-            public void execute() {
-                DoubleUtil.round(0, -1);
-            }
-        });
+        assertThrows(IllegalArgumentException.class, () -> DoubleUtil.round(0, -1));
     }
 
     @ParameterizedTest

@@ -37,7 +37,6 @@ public class TemperatureFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_temperature, container, false);
 
         getEditTextsFromView(view);
-        resetEditTexts();
 
         Button btnConvertC = view.findViewById(R.id.btnConvertC);
         btnConvertC.setOnClickListener(createClickListener(etCelsius, TemperatureUnit.CELSIUS));
@@ -49,18 +48,16 @@ public class TemperatureFragment extends Fragment {
         btnConvertK.setOnClickListener(createClickListener(etKelvin, TemperatureUnit.KELVIN));
 
         Button btnReset = view.findViewById(R.id.btnReset);
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetEditTexts();
-            }
-        });
+        btnReset.setOnClickListener(v -> resetEditTexts());
 
         return view;
     }
 
     private void resetEditTexts() {
-        displayTemperatureValues(new TemperatureValuesContainer());
+        String empty = "";
+        etCelsius.setText(empty);
+        etFahrenheit.setText(empty);
+        etKelvin.setText(empty);
     }
 
     private void displayTemperatureValues(final TemperatureValuesContainer container) {
@@ -77,18 +74,15 @@ public class TemperatureFragment extends Fragment {
     }
 
     private View.OnClickListener createClickListener(final EditText editText, final TemperatureUnit unit) {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                double value = EditTextUtil.getDoubleValue(editText);
+        return v -> {
+            double value = EditTextUtil.getDoubleValue(editText);
 
-                if (Double.isNaN(value)) {
-                    return;
-                }
-
-                TemperatureValuesContainer valuesContainer = mViewModel.convertTemperatureValues(value, unit);
-                displayTemperatureValues(valuesContainer);
+            if (Double.isNaN(value)) {
+                return;
             }
+
+            TemperatureValuesContainer valuesContainer = mViewModel.convertTemperatureValues(value, unit);
+            displayTemperatureValues(valuesContainer);
         };
     }
 

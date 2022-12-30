@@ -6,9 +6,6 @@ public class TemperatureValuesContainer {
     private double celsius;
     private double kelvin;
 
-    public TemperatureValuesContainer() {
-    }
-
     public TemperatureValuesContainer(double fahrenheit, double celsius, double kelvin) {
         this.fahrenheit = fahrenheit;
         this.celsius = celsius;

@@ -4,9 +4,6 @@ public class BmiCalculationResult {
     private double bmi;
     private String category;
 
-    public BmiCalculationResult() {
-    }
-
     public BmiCalculationResult(double bmi, String category) {
         this.bmi = bmi;
         this.category = category;

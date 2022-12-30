@@ -44,7 +44,6 @@ public class LengthFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_length, container, false);
 
         getEditTextsFromView(view);
-        resetEditTexts();
 
         Button btnConvertCm = view.findViewById(R.id.btnConvertCm);
         btnConvertCm.setOnClickListener(createClickListener(etCentimeters, LengthUnit.CENTIMETERS));
@@ -56,20 +55,17 @@ public class LengthFragment extends Fragment {
         btnConvertIn.setOnClickListener(createClickListener(etInches, LengthUnit.INCHES));
 
         Button btnConvertFtIn = view.findViewById(R.id.btnConvertFtIn);
-        btnConvertFtIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                double ft = EditTextUtil.getDoubleValue(etCombiFt);
-                double in = EditTextUtil.getDoubleValue(etCombiIn);
+        btnConvertFtIn.setOnClickListener(v -> {
+            double ft = EditTextUtil.getDoubleValue(etCombiFt);
+            double in = EditTextUtil.getDoubleValue(etCombiIn);
 
-                if (Double.isNaN(ft) || Double.isNaN(in)) {
-                    return;
-                }
-
-                double totalInch = ft * 12 + in;
-                LengthValuesContainer valuesContainer = mViewModel.convertLengthValues(totalInch, LengthUnit.INCHES);
-                displayLengthValues(valuesContainer);
+            if (Double.isNaN(ft) || Double.isNaN(in)) {
+                return;
             }
+
+            double totalInch = ft * 12 + in;
+            LengthValuesContainer valuesContainer = mViewModel.convertLengthValues(totalInch, LengthUnit.INCHES);
+            displayLengthValues(valuesContainer);
         });
 
         Button btnConvertKm = view.findViewById(R.id.btnConvertKm);
@@ -85,18 +81,22 @@ public class LengthFragment extends Fragment {
         btnConvertYd.setOnClickListener(createClickListener(etYards, LengthUnit.YARDS));
 
         Button btnReset = view.findViewById(R.id.btnReset);
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetEditTexts();
-            }
-        });
+        btnReset.setOnClickListener(v -> resetEditTexts());
 
         return view;
     }
 
     private void resetEditTexts() {
-        displayLengthValues(new LengthValuesContainer());
+        String empty = "";
+        etCentimeters.setText(empty);
+        etFeet.setText(empty);
+        etInches.setText(empty);
+        etCombiFt.setText(empty);
+        etCombiIn.setText(empty);
+        etKilometers.setText(empty);
+        etMeters.setText(empty);
+        etMiles.setText(empty);
+        etYards.setText(empty);
     }
 
     private void displayLengthValues(final LengthValuesContainer container) {
@@ -131,18 +131,15 @@ public class LengthFragment extends Fragment {
     }
 
     private View.OnClickListener createClickListener(final EditText editText, final LengthUnit unit) {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                double value = EditTextUtil.getDoubleValue(editText);
+        return v -> {
+            double value = EditTextUtil.getDoubleValue(editText);
 
-                if (Double.isNaN(value)) {
-                    return;
-                }
-
-                LengthValuesContainer valuesContainer = mViewModel.convertLengthValues(value, unit);
-                displayLengthValues(valuesContainer);
+            if (Double.isNaN(value)) {
+                return;
             }
+
+            LengthValuesContainer valuesContainer = mViewModel.convertLengthValues(value, unit);
+            displayLengthValues(valuesContainer);
         };
     }
 

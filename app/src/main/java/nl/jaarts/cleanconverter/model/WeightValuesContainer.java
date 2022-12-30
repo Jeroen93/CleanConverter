@@ -8,9 +8,6 @@ public class WeightValuesContainer {
     private double pounds;
     private double ounces;
 
-    public WeightValuesContainer() {
-    }
-
     public WeightValuesContainer(double grams, double kilograms, double stones, double pounds, double ounces) {
         this.grams = grams;
         this.kilograms = kilograms;

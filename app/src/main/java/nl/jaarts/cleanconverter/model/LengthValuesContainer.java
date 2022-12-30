@@ -10,9 +10,6 @@ public class LengthValuesContainer {
     private double miles;
     private double yards;
 
-    public LengthValuesContainer() {
-    }
-
     public LengthValuesContainer(double centimeters, double feet, double inches, double kilometers, double meters, double miles, double yards) {
         this.centimeters = centimeters;
         this.feet = feet;

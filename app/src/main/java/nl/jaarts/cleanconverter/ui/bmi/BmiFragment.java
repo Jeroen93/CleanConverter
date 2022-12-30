@@ -59,57 +59,51 @@ public class BmiFragment extends Fragment {
         etBmi = view.findViewById(R.id.etBmi);
         etCategory = view.findViewById(R.id.etCategory);
 
-        resetEditTexts();
-
         RadioGroup radioGroup = view.findViewById(R.id.rgSystem);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rbMetric:
-                        showMetricFields();
-                        break;
-                    case R.id.rbImperial:
-                        showImperialFields();
-                        break;
-                }
+        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.rbMetric:
+                    showMetricFields();
+                    break;
+                case R.id.rbImperial:
+                    showImperialFields();
+                    break;
             }
         });
 
         Button btnCalculate = view.findViewById(R.id.btnCalculate);
-        btnCalculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (showsMetric) {
-                    calculateMetricBMI();
-                } else {
-                    calculateImperialBMI();
-                }
+        btnCalculate.setOnClickListener(v -> {
+            if (showsMetric) {
+                calculateMetricBMI();
+            } else {
+                calculateImperialBMI();
             }
         });
 
         Button btnReset = view.findViewById(R.id.btnReset);
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetEditTexts();
-            }
-        });
+        btnReset.setOnClickListener(v -> resetEditTexts());
 
         return view;
     }
 
     private void resetEditTexts() {
-        etHeightCm.setText("0");
-        etHeightFt.setText("0");
-        etHeightIn.setText("0");
-        etWeight.setText("0");
-        displayBMIResult(new BmiCalculationResult());
+        String empty = "";
+        etHeightCm.setText(empty);
+        etHeightFt.setText(empty);
+        etHeightIn.setText(empty);
+        etWeight.setText(empty);
+        etBmi.setText(empty);
+        etCategory.setText(empty);
     }
 
     private void calculateMetricBMI() {
         double cm = EditTextUtil.getDoubleValue(etHeightCm);
         double kg = EditTextUtil.getDoubleValue(etWeight);
+
+        if (Double.isNaN(cm) || Double.isNaN(kg)) {
+            return;
+        }
+
         BmiCalculationResult result = mViewModel.calculateMetricBMI(cm, kg);
         displayBMIResult(result);
     }
@@ -118,6 +112,16 @@ public class BmiFragment extends Fragment {
         double ft = EditTextUtil.getDoubleValue(etHeightFt);
         double in = EditTextUtil.getDoubleValue(etHeightIn);
         double lb = EditTextUtil.getDoubleValue(etWeight);
+
+        if (Double.isNaN(lb) || Double.isNaN(ft)) {
+            return;
+        }
+
+        // Inch field may be left empty -> set to 0
+        if (Double.isNaN(in)) {
+            in = 0d;
+        }
+
         BmiCalculationResult result = mViewModel.calculateImperialBMI(ft, in, lb);
         displayBMIResult(result);
     }
