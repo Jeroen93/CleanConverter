@@ -32,13 +32,7 @@ class EditTextUtilTest {
 
     @Test
     void getDoubleValue_NullEditText_ThrowsIllegalArgumentException() {
-        assertThrows(IllegalArgumentException.class, new Executable() {
-            @Override
-            public void execute() {
-                //noinspection ConstantConditions
-                EditTextUtil.getDoubleValue(null);
-            }
-        });
+        assertThrows(IllegalArgumentException.class, () -> EditTextUtil.getDoubleValue(null));
     }
 
     @Test

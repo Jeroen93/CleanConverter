@@ -60,39 +60,28 @@ public class BmiFragment extends Fragment {
         etCategory = view.findViewById(R.id.etCategory);
 
         RadioGroup radioGroup = view.findViewById(R.id.rgSystem);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rbMetric:
-                        showMetricFields();
-                        break;
-                    case R.id.rbImperial:
-                        showImperialFields();
-                        break;
-                }
+        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.rbMetric:
+                    showMetricFields();
+                    break;
+                case R.id.rbImperial:
+                    showImperialFields();
+                    break;
             }
         });
 
         Button btnCalculate = view.findViewById(R.id.btnCalculate);
-        btnCalculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (showsMetric) {
-                    calculateMetricBMI();
-                } else {
-                    calculateImperialBMI();
-                }
+        btnCalculate.setOnClickListener(v -> {
+            if (showsMetric) {
+                calculateMetricBMI();
+            } else {
+                calculateImperialBMI();
             }
         });
 
         Button btnReset = view.findViewById(R.id.btnReset);
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetEditTexts();
-            }
-        });
+        btnReset.setOnClickListener(v -> resetEditTexts());
 
         return view;
     }

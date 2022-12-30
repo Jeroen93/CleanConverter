@@ -48,12 +48,7 @@ public class TemperatureFragment extends Fragment {
         btnConvertK.setOnClickListener(createClickListener(etKelvin, TemperatureUnit.KELVIN));
 
         Button btnReset = view.findViewById(R.id.btnReset);
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetEditTexts();
-            }
-        });
+        btnReset.setOnClickListener(v -> resetEditTexts());
 
         return view;
     }
@@ -79,18 +74,15 @@ public class TemperatureFragment extends Fragment {
     }
 
     private View.OnClickListener createClickListener(final EditText editText, final TemperatureUnit unit) {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                double value = EditTextUtil.getDoubleValue(editText);
+        return v -> {
+            double value = EditTextUtil.getDoubleValue(editText);
 
-                if (Double.isNaN(value)) {
-                    return;
-                }
-
-                TemperatureValuesContainer valuesContainer = mViewModel.convertTemperatureValues(value, unit);
-                displayTemperatureValues(valuesContainer);
+            if (Double.isNaN(value)) {
+                return;
             }
+
+            TemperatureValuesContainer valuesContainer = mViewModel.convertTemperatureValues(value, unit);
+            displayTemperatureValues(valuesContainer);
         };
     }
 
